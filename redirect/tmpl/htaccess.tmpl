@@ -1,0 +1,5 @@
+#
+# Apache config file fragment for application Redirect at ${site.hostname}${appconfig.context}
+#
+
+RedirectMatch ${appconfig.context}/(.*) ${installable.customizationpoints.target.value}

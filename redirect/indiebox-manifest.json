@@ -1,0 +1,43 @@
+{
+    "type" : "app",
+
+    "info" : {
+        "package"         : "##pkgname##",
+        "name"            : "Redirect",
+        "tagline"         : "##pkgdesc##",
+
+        "developer"       : "##developer##",
+        "maintainer"      : "##maintainer##",
+
+        "upstreamversion" : "##pkgver##",
+        "packageversion"  : "##pkgver##-##pkgrel##",
+
+        "licenses" : [
+            "##license##"
+        ]
+    },
+
+    "roles" : {
+        "apache2" : {
+            "defaultcontext" : "/redirect",
+            "appconfigitems" : [
+                {
+                    "type"         : "file",
+                    "name"         : ".htaccess",
+                    "template"     : "tmpl/htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                }
+            ]
+        }
+    },
+    "customizationpoints" : {
+        "target" : {
+            "name" : "Target URL",
+            "type" : "string",
+            "required" : true,
+            "default" : {
+                "value" : "http://indiebox.net/"
+            }
+        }
+    }
+}
