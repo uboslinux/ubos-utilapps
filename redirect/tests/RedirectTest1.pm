@@ -32,7 +32,6 @@ my $target = 'http://cnn.com/';
 my $TEST = new UBOS::WebAppTest(
     appToTest   => 'redirect',
     description => 'Tests redirects',
-    testContext => '/redir',
     customizationPointValues => {
         'target' => $target,
     },
