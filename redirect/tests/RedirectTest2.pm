@@ -37,7 +37,7 @@ my $TEST = new UBOS::WebAppTest(
                     check => sub {
                         my $c = shift;
 
-                        my $default = 'http://indiebox.net/';
+                        my $default = 'http://ubos.net/';
 
                         $c->getMustRedirect( '/',                       $default,                  undef, 'Redirected to wrong place' );
                         $c->getMustRedirect( '/below',                  $default,                  undef, 'Redirected to wrong place' );
