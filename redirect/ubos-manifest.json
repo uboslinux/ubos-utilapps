@@ -19,9 +19,7 @@
             "name" : "Target URL",
             "type" : "string",
             "required" : true,
-            "default" : {
-                "value" : "http://ubos.net/"
-            }
+            "regex"    : "(https?://.+)|(mailto:.+@.+)|(/.*)"
         }
     }
 }
