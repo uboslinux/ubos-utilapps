@@ -31,6 +31,9 @@ use UBOS::WebAppTest;
 my $TEST = new UBOS::WebAppTest(
     appToTest   => 'redirect',
     description => 'Tests redirects',
+    customizationPointValues => {
+        'target' => 'http://ubos.net/',
+    },
     checks      => [
             new UBOS::WebAppTest::StateCheck(
                     name  => 'virgin',
