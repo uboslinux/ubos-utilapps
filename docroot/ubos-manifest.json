@@ -1,0 +1,44 @@
+{
+    "type" : "app",
+
+    "roles" : {
+        "apache2" : {
+            "defaultcontext" : "/docs",
+            "depends" : [
+                "php",
+                "php-apache"
+            ],
+            "apache2modules" : [
+                "php7"
+            ],
+            "appconfigitems" : [
+                {
+                    "type"  : "directory",
+                    "name"  : "${appconfig.datadir}",
+                    "uname" : "docroot",
+                    "gname" : "docroot",
+                    "retentionpolicy" : "keep",
+                    "retentionbucket" : "docs"
+                },
+                {
+                    "type"         : "file",
+                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
+                    "template"     : "tmpl/htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                },
+                {
+                    "type"   : "perlscript",
+                    "source" : "bin/provision.pl"
+                }
+            ]
+        }
+    },
+    "customizationpoints" : {
+        "publicsshkey" : {
+            "name" : "Public SSH key for upload",
+            "type" : "text",
+            "required" : true
+        }
+    }
+}
+

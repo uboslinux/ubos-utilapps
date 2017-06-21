@@ -1,0 +1,19 @@
+Alias ${appconfig.contextorslash} /var/lib/docroot/${appconfig.appconfigid}
+
+<Location ${appconfig.contextorslash}>
+    SetEnv DATADIR /var/lib/docroot/${appconfig.appconfigid}
+    SetEnv CONTEXT "${appconfig.context}"
+
+    <IfModule php7_module>
+        php_admin_value open_basedir ${appconfig.apache2.dir}:/tmp/:${package.codedir}:${appconfig.datadir}
+    </IfModule>
+</Location>
+
+<Directory ${package.codedir}>
+    Require all granted
+</Directory>
+
+<Directory /var/lib/docroot/${appconfig.appconfigid}>
+    Require all granted
+    Options +Indexes
+</Directory>
