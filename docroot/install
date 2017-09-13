@@ -6,11 +6,7 @@
 #
 
 post_install() {
-    # create user docroot if it does not exist, with bash
-    getent passwd docroot &>/dev/null || useradd -s /bin/bash -c 'rsync over ssh access for upload to docroot' -m docroot >/dev/null
-
-    # lock the account by setting an impossible password
-    passwd -l docroot &>/dev/null
+    perl -MUBOS::Utils -e 'UBOS::Utils::ensureOsUser( "docroot", undef, "rsync over ssh access for upload to docroot" );'
     true
 }
 

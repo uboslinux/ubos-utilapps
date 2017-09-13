@@ -14,9 +14,13 @@
             "appconfigitems" : [
                 {
                     "type"  : "directory",
-                    "name"  : "${appconfig.datadir}",
-                    "uname" : "docroot",
-                    "gname" : "docroot",
+                    "name"  : "${appconfig.datadir}"
+                },
+                {
+                    "type"  : "directory",
+                    "name"  : "${appconfig.datadir}/rsyncsubdir",
+                    "uname" : "${package.name}",
+                    "gname" : "${package.name}",
                     "retentionpolicy" : "keep",
                     "retentionbucket" : "docs"
                 },
@@ -28,7 +32,7 @@
                 },
                 {
                     "type"   : "perlscript",
-                    "source" : "bin/provision.pl"
+                    "source" : "/usr/share/ubos-rsync-server/bin/provision-appconfig"
                 }
             ]
         }

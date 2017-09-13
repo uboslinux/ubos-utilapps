@@ -1,6 +1,7 @@
-Alias ${appconfig.context}/ /var/lib/docroot/${appconfig.appconfigid}/
+Alias ${appconfig.context}/ /var/lib/docroot/${appconfig.appconfigid}/rsyncsubdir/
 
 <Location ${appconfig.contextorslash}>
+    SetEnv APPCONFIGID ${appconfig.appconfigid}
     SetEnv DATADIR /var/lib/docroot/${appconfig.appconfigid}
     SetEnv CONTEXT "${appconfig.context}"
 
@@ -13,7 +14,7 @@ Alias ${appconfig.context}/ /var/lib/docroot/${appconfig.appconfigid}/
     Require all granted
 </Directory>
 
-<Directory /var/lib/docroot/${appconfig.appconfigid}>
+<Directory /var/lib/docroot/${appconfig.appconfigid}/rsyncsubdir>
     Require all granted
     Options +Indexes
 </Directory>
