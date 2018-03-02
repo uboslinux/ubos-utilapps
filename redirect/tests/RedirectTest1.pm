@@ -19,7 +19,9 @@ my $TEST = new UBOS::WebAppTest(
     appToTest   => 'redirect',
     description => 'Tests redirects',
     customizationPointValues => {
-        'target' => $target,
+        'redirect' => {
+            'target' => $target
+        }
     },
     checks      => [
             new UBOS::WebAppTest::StateCheck(
