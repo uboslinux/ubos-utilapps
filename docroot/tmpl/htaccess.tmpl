@@ -2,11 +2,11 @@
 # Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
 #
 
-Alias ${appconfig.context}/ /var/lib/docroot/${appconfig.appconfigid}/rsyncsubdir/
+Alias ${appconfig.context}/ ${appconfig.datadir}/rsyncsubdir/
 
 <Location ${appconfig.contextorslash}>
     SetEnv APPCONFIGID ${appconfig.appconfigid}
-    SetEnv DATADIR /var/lib/docroot/${appconfig.appconfigid}
+    SetEnv DATADIR ${appconfig.datadir}
     SetEnv CONTEXT "${appconfig.context}"
 
     <IfModule php7_module>
@@ -18,7 +18,7 @@ Alias ${appconfig.context}/ /var/lib/docroot/${appconfig.appconfigid}/rsyncsubdi
     Require all granted
 </Directory>
 
-<Directory /var/lib/docroot/${appconfig.appconfigid}/rsyncsubdir>
+<Directory ${appconfig.datadir}/rsyncsubdir>
     Require all granted
     Options +Indexes
     AllowOverride All
