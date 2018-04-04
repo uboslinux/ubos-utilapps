@@ -7,7 +7,6 @@ pkgrel=1
 pkgdesc="Upload and host web server documents verbatim"
 arch=('any')
 license=('AGPL3')
-install=install
 depends=('ubos-rsync-server')
 
 package() {
@@ -15,14 +14,14 @@ package() {
     install -D -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/ubos/lib/ubos/manifests/${pkgname}.json
 
 # Icons
-    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png ${pkgdir}/ubos/http/_appicons/${pkgname}/
+    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png -t {pkgdir}/ubos/http/_appicons/${pkgname}/
 
 # Data
     mkdir -p ${pkgdir}/ubos/lib/${pkgname}
 
 # Systemd
-    install -D -m0644 ${startdir}/sysusers.d/docroot ${pkgdir}/ubos/lib/sysusers.d/docroot
+    install -D -m0644 ${startdir}/sysusers.d/docroot ${pkgdir}/usr/lib/sysusers.d/docroot
 
 # Tmpl
-    install -m644 ${startdir}/tmpl/htaccess.tmpl ${pkgdir}/ubos/share/${pkgname}/tmpl/
+    install -D -m0644 ${startdir}/tmpl/htaccess.tmpl -t ${pkgdir}/ubos/share/${pkgname}/tmpl/
 }
