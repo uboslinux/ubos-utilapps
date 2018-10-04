@@ -1,10 +1,11 @@
 #
-# Apache config file fragment for application htproxy at ${site.hostname}${appconfig.context}
+# Apache config file fragment for application htproxy at ${site.hostname}${appconfig.contextorslash},
+# which proxies to ${installable.customizationpoints.targetroot.value}${appconfig.contextorslash}
 #
 # Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
 #
 
 SSLProxyEngine on
 
-ProxyPass        ${appconfig.contextorslash} ${installable.customizationpoints.target.value}${appconfig.contextorslash}
-ProxyPassReverse ${appconfig.contextorslash} ${installable.customizationpoints.target.value}${appconfig.contextorslash}
+ProxyPass        ${appconfig.contextorslash} ${installable.customizationpoints.targetroot.value}${appconfig.contextorslash}
+ProxyPassReverse ${appconfig.contextorslash} ${installable.customizationpoints.targetroot.value}${appconfig.contextorslash}

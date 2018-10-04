@@ -20,8 +20,8 @@
         }
     },
     "customizationpoints" : {
-        "target" : {
-            "name" : "Proxy URL",
+        "targetroot" : {
+            "name" : "URL to root of the proxied site",
             "type" : "string",
             "required" : true,
             "regex"    : "https?://.+"
