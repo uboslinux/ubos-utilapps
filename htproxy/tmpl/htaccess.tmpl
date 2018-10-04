@@ -1,0 +1,13 @@
+#
+# Apache config file fragment for application htproxy at ${site.hostname}${appconfig.context}
+#
+# Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
+#
+
+ProxyPreserveHost On
+
+ProxyPass        ${appconfig.context} ${installable.customizationpoints.target.value}${appconfig.context}
+ProxyPassReverse ${appconfig.context} ${installable.customizationpoints.target.value}${appconfig.context}
+
+RequestHeader add Host ${site.hostname}
+RequestHeader add X-Forwarded-Proto ${site.protocol}

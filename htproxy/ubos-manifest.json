@@ -1,0 +1,25 @@
+{
+    "type" : "app",
+
+    "roles" : {
+        "apache2" : {
+            "defaultcontext" : "",
+            "appconfigitems" : [
+                {
+                    "type"         : "file",
+                    "name"         : ".htaccess",
+                    "template"     : "tmpl/htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                }
+            ]
+        }
+    },
+    "customizationpoints" : {
+        "target" : {
+            "name" : "Proxy URL",
+            "type" : "string",
+            "required" : true,
+            "regex"    : "https?://.+"
+        }
+    }
+}
