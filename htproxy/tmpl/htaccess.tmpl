@@ -4,10 +4,7 @@
 # Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
 #
 
-ProxyPreserveHost On
+SSLProxyEngine on
 
-ProxyPass        ${appconfig.context} ${installable.customizationpoints.target.value}${appconfig.context}
-ProxyPassReverse ${appconfig.context} ${installable.customizationpoints.target.value}${appconfig.context}
-
-RequestHeader add Host ${site.hostname}
-RequestHeader add X-Forwarded-Proto ${site.protocol}
+ProxyPass        ${appconfig.contextorslash} ${installable.customizationpoints.target.value}${appconfig.contextorslash}
+ProxyPassReverse ${appconfig.contextorslash} ${installable.customizationpoints.target.value}${appconfig.contextorslash}

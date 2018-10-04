@@ -4,10 +4,15 @@
     "roles" : {
         "apache2" : {
             "defaultcontext" : "",
+            "apache2modules" : [
+                "proxy",
+                "proxy_http",
+                "ssl"
+            ],
             "appconfigitems" : [
                 {
                     "type"         : "file",
-                    "name"         : ".htaccess",
+                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
                     "template"     : "tmpl/htaccess.tmpl",
                     "templatelang" : "varsubst"
                 }
