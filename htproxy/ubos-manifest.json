@@ -11,10 +11,8 @@
             ],
             "appconfigitems" : [
                 {
-                    "type"         : "file",
-                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
-                    "template"     : "tmpl/htaccess.tmpl",
-                    "templatelang" : "varsubst"
+                    "type"   : "perlscript",
+                    "source" : "bin/generate-htaccess.pl"
                 }
             ]
         }
