@@ -1,0 +1,27 @@
+developer="http://indiecomputing.com/"
+url="http://ubos.net/"
+maintainer=$developer
+pkgname=$(basename $(pwd))
+pkgver=0.1
+pkgrel=1
+pkgdesc="Pull a file in a well-known location"
+arch=('any')
+license=('AGPL3')
+options=('!strip')
+
+package() {
+# Manifest
+    install -D -m0644 ${startdir}/ubos-manifest.json ${pkgdir}/ubos/lib/ubos/manifests/${pkgname}.json
+
+# Icons
+#    install -D -m0644 ${startdir}/appicons/{72x72,144x144}.png -t ${pkgdir}/ubos/http/_appicons/${pkgname}/
+
+# Templates
+    install -D -m0755 ${startdir}/htaccess.tmpl -t ${pkgdir}/ubos/share/${pkgname}/
+
+# Data dir
+    mkdir -m 0755 ${pkgdir}/ubos/lib/${pkgname}
+
+# Web
+    install -D -m0644 ${startdir}/index.txt -t ${pkgdir}/ubos/share/${pkgname}/
+}

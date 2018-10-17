@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/file
+RewriteRule .* /index.txt [L]
+
+<Directory ${appconfig.datadir}>
+    Require all granted
+</Directory>
+<Directory ${appconfig.apache2.dir}>
+    Require all granted
+</Directory>
+
+Alias /file ${appconfig.datadir}/file

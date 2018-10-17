@@ -1,0 +1,34 @@
+{
+    "type" : "app",
+
+    "roles" : {
+        "apache2" : {
+            "fixedcontext" : "",
+
+            "apache2modules" : [
+                "rewrite"
+            ],
+
+            "appconfigitems" : [
+                {
+                    "type"         : "file",
+                    "name"         : "${appconfig.apache2.appconfigfragmentfile}",
+                    "template"     : "htaccess.tmpl",
+                    "templatelang" : "varsubst"
+                },
+                {
+                    "type"   : "file",
+                    "name"   : "index.txt",
+                    "source" : "index.txt",
+                    "mode"   : "0755"
+                },
+                {
+                    "type"  : "directory",
+                    "name"  : "${appconfig.datadir}",
+                    "retentionpolicy" : "keep",
+                    "retentionbucket" : "datadir"
+                }
+            ]
+        }
+    }
+}
