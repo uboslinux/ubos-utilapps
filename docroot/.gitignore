@@ -1,3 +1,2 @@
 *~
-pkg/
-docroot-*.pkg*
+docroot-*-any.pkg*
