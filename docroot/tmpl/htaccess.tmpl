@@ -20,6 +20,10 @@ Alias ${appconfig.context}/ ${appconfig.datadir}/rsyncsubdir/
 
 <Directory ${appconfig.datadir}/rsyncsubdir>
     Require all granted
-    Options +Indexes
+    Options +Indexes +FollowSymLinks +Includes
     AllowOverride All
+    DirectoryIndex index.html index.shtml index.php index.pl
+
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml
 </Directory>
