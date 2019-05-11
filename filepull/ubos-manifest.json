@@ -3,7 +3,7 @@
 
     "roles" : {
         "apache2" : {
-            "fixedcontext" : "",
+            "fixedcontext" : "/filepull",
 
             "apache2modules" : [
                 "rewrite"
