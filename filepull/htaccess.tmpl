@@ -1,4 +1,7 @@
 
+Alias ${appconfig.context}/index.txt ${appconfig.apache2.dir}/index.txt
+Alias ${appconfig.context}/          ${appconfig.datadir}/
+
 <Location "${appconfig.context}/">
     RewriteEngine on
 
