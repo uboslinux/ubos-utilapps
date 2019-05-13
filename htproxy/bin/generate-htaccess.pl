@@ -25,6 +25,14 @@ if( 'deploy' eq $operation ) {
 # which proxies to $targetRoot$contextOrSlash
 #
 
+# ProxyPass /robots.txt !
+# ProxyPass /favicon.ico !
+# ProxyPass /sitemap.xml !
+# ProxyPass /.well-known !
+# ProxyPass /_common !
+# Just the errors:
+ProxyPass /_errors !
+
 ProxyPass        $contextOrSlash $targetRoot$contextOrSlash
 ProxyPassReverse $contextOrSlash $targetRoot$contextOrSlash
 
