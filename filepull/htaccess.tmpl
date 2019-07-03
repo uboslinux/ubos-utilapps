@@ -1,7 +1,15 @@
-RewriteEngine on
 
-RewriteCond %{REQUEST_URI} !^/file
-RewriteRule .* /index.txt [L]
+Alias ${appconfig.context}/index.txt ${appconfig.apache2.dir}/index.txt
+Alias ${appconfig.context}/          ${appconfig.datadir}/
+
+<Location "${appconfig.context}/">
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule .* index.txt [L]
+
+    DirectoryIndex index.txt
+</Location>
 
 <Directory ${appconfig.datadir}>
     Require all granted
@@ -9,5 +17,3 @@ RewriteRule .* /index.txt [L]
 <Directory ${appconfig.apache2.dir}>
     Require all granted
 </Directory>
-
-Alias /file ${appconfig.datadir}/file
