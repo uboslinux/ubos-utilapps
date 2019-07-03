@@ -28,16 +28,13 @@ if( 'deploy' eq $operation ) {
 ProxyPass        $contextOrSlash $targetRoot$contextOrSlash
 ProxyPassReverse $contextOrSlash $targetRoot$contextOrSlash
 
+# Always: we don't know whether the user will enter a http or https URL into the customization point
+SSLProxyEngine on
+
 <Location $contextOrSlash>
     ProxyPreserveHost On
 </Location>
 CONTENT
-    if( 'https' eq $protocol ) {
-        $content .= <<CONTENT;
-
-SSLProxyEngine on
-CONTENT
-    }
 
     UBOS::Utils::saveFile( $htaccessFile, $content );
 }
