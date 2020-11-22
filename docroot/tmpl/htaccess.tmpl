@@ -2,6 +2,8 @@
 # Copyright (C) 2014 and later, Indie Computing Corp. All rights reserved. License: see package.
 #
 
+Alias ${appconfig.context}/_common /srv/http/_common
+Alias ${appconfig.context}/_errors /srv/http/_errors
 Alias ${appconfig.context}/ ${appconfig.datadir}/rsyncsubdir/
 
 <Location ${appconfig.contextorslash}>
