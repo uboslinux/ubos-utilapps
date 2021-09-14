@@ -11,7 +11,7 @@ Alias ${appconfig.context}/ ${appconfig.datadir}/rsyncsubdir/
     SetEnv DATADIR ${appconfig.datadir}
     SetEnv CONTEXT "${appconfig.context}"
 
-    <IfModule php7_module>
+    <IfModule php_module>
         php_admin_value open_basedir ${appconfig.apache2.dir}:/tmp/:/ubos/tmp/:${package.codedir}:${appconfig.datadir}
     </IfModule>
 </Location>
